@@ -17,6 +17,11 @@ public class ClothingItem extends StoreItem {
         this.size = size;
     }
 
+    @Override
+    public String getTypeDependantString() {
+        return getSize();
+    }
+
     public String getSize() {
         return size;
     }

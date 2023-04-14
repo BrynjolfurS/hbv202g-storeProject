@@ -17,6 +17,11 @@ public class ElectronicItem extends StoreItem {
         this.brand = brand;
     }
 
+    @Override
+    public String getTypeDependantString() {
+        return getBrand();
+    }
+
     public String getBrand() {
         return brand;
     }

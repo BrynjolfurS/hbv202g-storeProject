@@ -17,6 +17,11 @@ public class BookItem extends StoreItem {
         Author = author;
     }
 
+    @Override
+    public String getTypeDependantString() {
+        return getAuthor();
+    }
+
     public String getAuthor() {
         return Author;
     }

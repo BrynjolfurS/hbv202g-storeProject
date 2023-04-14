@@ -24,6 +24,10 @@ public abstract class StoreItem {
         return id;
     }
 
+    public String getTypeDependantString() {
+        return "";
+    }
+
     public String getName() {
         return name;
     }
