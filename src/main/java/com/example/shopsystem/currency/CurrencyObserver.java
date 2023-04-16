@@ -1,5 +1,5 @@
 package com.example.shopsystem.currency;
 
 public interface CurrencyObserver {
-    void update(String currency);
+    void update(String currencyTo);
 }

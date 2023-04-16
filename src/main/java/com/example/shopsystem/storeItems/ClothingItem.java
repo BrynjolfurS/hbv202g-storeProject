@@ -1,5 +1,7 @@
 package com.example.shopsystem.storeItems;
 
+import com.example.shopsystem.currency.CurrencyConverter;
+
 /***********************************************************
  * Nafn: Brynjólfur Steingrímsson
  * Email: brs26@hi.is
@@ -25,4 +27,5 @@ public class ClothingItem extends StoreItem {
     public String getSize() {
         return size;
     }
+
 }

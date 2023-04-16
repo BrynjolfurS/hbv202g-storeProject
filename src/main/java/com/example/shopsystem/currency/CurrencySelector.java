@@ -14,6 +14,7 @@ public class CurrencySelector extends ObservableCurrency{
     }
 
     public void selectCurrency(String currency) {
+        notifyObservers(currency);
         setCurrency(currency);
     }
 }

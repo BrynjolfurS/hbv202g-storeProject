@@ -1,5 +1,11 @@
 package com.example.shopsystem.storeItems;
 
+import com.example.shopsystem.currency.CurrencyConverter;
+import com.example.shopsystem.currency.CurrencyObserver;
+
+import java.util.Dictionary;
+import java.util.Hashtable;
+
 /***********************************************************
  * Nafn: Brynjólfur Steingrímsson
  * Email: brs26@hi.is
@@ -8,16 +14,21 @@ package com.example.shopsystem.storeItems;
  *
  *
  ***********************************************************/
-public abstract class StoreItem {
+public abstract class StoreItem implements CurrencyObserver {
 
     private int id;
     private String name;
-    private double price;
 
-    public StoreItem(int id, String name, double price) {
+    private Dictionary<String, Double> priceByCurrency = new Hashtable<>();
+    private double currentPrice;
+
+    public StoreItem(int id, String name, double priceInDollars) {
         this.id = id;
         this.name = name;
-        this.price = price;
+        this.currentPrice = priceInDollars;
+        priceByCurrency.put("USD", this.currentPrice);
+        priceByCurrency.put("ISK", CurrencyConverter.convert("USD","ISK",priceInDollars));
+        priceByCurrency.put("EURO", CurrencyConverter.convert("USD","EURO",priceInDollars));
     }
 
     public int getId() {
@@ -33,6 +44,13 @@ public abstract class StoreItem {
     }
 
     public double getPrice() {
-        return price;
+        return currentPrice;
+    }
+    public void setPrice(double price) {
+        this.currentPrice = price;
+    }
+    @Override
+    public void update(String currencyTo) {
+        this.setPrice(priceByCurrency.get(currencyTo));
     }
 }

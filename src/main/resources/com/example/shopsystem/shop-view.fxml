@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <!--        <?xml version="1.0" encoding="UTF-8"?>-->
 <!--        <?import javafx.geometry.Insets?>-->
@@ -38,24 +41,53 @@
 <!--</right>-->
 <!--</BorderPane>-->
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.shopsystem.controllers.ShopController">
    <right>
-      <VBox prefHeight="400.0" prefWidth="120.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="400.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Your shopping cart" />
-            <ListView fx:id="fxCartItemList" prefHeight="200.0" prefWidth="200.0" />
+            <Label text="Your shopping cart">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin></Label>
+            <ListView fx:id="fxCartItemList" prefHeight="300.0" prefWidth="400.0" />
+            <Label fx:id="fxCartTotalCost" text="Total cost:" />
          </children>
+         <BorderPane.margin>
+            <Insets right="20.0" />
+         </BorderPane.margin>
       </VBox>
    </right>
    <left>
-      <VBox prefHeight="400.0" prefWidth="342.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="400.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Welcome to ZomboShop!" />
-            <ListView fx:id="fxShopItemList" prefHeight="200.0" prefWidth="479.0" />
+            <Label text="Welcome to ZomboShop!">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <ListView fx:id="fxShopItemList" prefHeight="400.0" prefWidth="400.0" />
          </children>
+         <BorderPane.margin>
+            <Insets left="20.0" />
+         </BorderPane.margin>
       </VBox>
    </left>
    <center>
-      <VBox prefHeight="241.0" prefWidth="138.0" BorderPane.alignment="CENTER" />
+      <VBox maxWidth="150.0" prefHeight="241.0" prefWidth="138.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Choose Currency">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Label>
+            <RadioButton fx:id="fxRbUSD" mnemonicParsing="false" text="USD" />
+            <RadioButton fx:id="fxRbISK" mnemonicParsing="false" text="ISK" />
+            <RadioButton fx:id="fxRbEURO" mnemonicParsing="false" text="EURO" />
+         </children>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding></VBox>
    </center>
 </BorderPane>

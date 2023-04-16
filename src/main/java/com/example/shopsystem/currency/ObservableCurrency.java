@@ -1,6 +1,8 @@
 package com.example.shopsystem.currency;
 
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.List;
 
 /***********************************************************
@@ -12,12 +14,16 @@ import java.util.List;
  *
  ***********************************************************/
 public abstract class ObservableCurrency {
+    private static final Dictionary<String, String> currencySymbols = new Hashtable<>();
     private List<CurrencyObserver> observers;
-
     private String currency;
 
     public ObservableCurrency() {
         observers = new ArrayList<CurrencyObserver>();
+        currency = "USD";
+        currencySymbols.put("USD", "$");
+        currencySymbols.put("ISK", "kr");
+        currencySymbols.put("EURO", "€");
     }
 
     public void attach(CurrencyObserver observer) {
@@ -28,9 +34,9 @@ public abstract class ObservableCurrency {
         observers.remove(observer);
     }
 
-    public void notifyObservers() {
+    public void notifyObservers(String currencyTo) {
         for (CurrencyObserver observer : observers) {
-            observer.update(currency);
+            observer.update(currencyTo);
         }
     }
 
@@ -41,4 +47,9 @@ public abstract class ObservableCurrency {
     public String getCurrency() {
         return currency;
     }
+
+    public String getSymbol() {
+        return currencySymbols.get(currency);
+    }
+
 }

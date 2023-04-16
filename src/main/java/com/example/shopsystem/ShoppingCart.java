@@ -14,18 +14,12 @@ import java.util.List;
  *
  *
  ***********************************************************/
-public class ShoppingCart implements CurrencyObserver {
+public class ShoppingCart {
 
     private List<StoreItem> cartItems;
-    private String currency;
 
     public ShoppingCart() {
         cartItems = new ArrayList<>();
-    }
-
-    @Override
-    public void update(String currency) {
-        // Breyta verðinu
     }
 
     public void addItem(StoreItem item) {
