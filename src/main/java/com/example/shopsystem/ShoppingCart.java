@@ -16,10 +16,6 @@ import java.util.List;
  ***********************************************************/
 public class ShoppingCart {
 
-    public List<StoreItem> getCartItems() {
-        return cartItems;
-    }
-
     private List<StoreItem> cartItems;
 
     public ShoppingCart() {
